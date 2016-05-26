@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<header>
+<script src="libs/jquery-1.12.4.js"></script>
+
+
+</header>
+<body>
+<script>
+var dir = "images/";
+var fileextension = ".JPG";
+$.ajax({
+    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+    url: dir,
+    success: function (data) {
+        //List all .png file names in the page
+        $(data).find("a:contains(" + fileextension + ")").each(function () {
+            var filename = this.href.replace(window.location, "").replace("http://", "");
+
+            $("body").append("<img src='" + dir + filename + "'>");
+        });
+    }
+});
+</script>
+</body>
+</html>
