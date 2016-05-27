@@ -1,57 +1,64 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html ng-app="website">
 <head>
-  <link rel="import" href="bootstrap.html">
+<title>Labro</title>
+<link rel="import" href="assets/bootstrap.html">
 	<script type="text/javascript">
-      function handleLoad(e) {
-          console.log('Loaded import: ' + e.target.href);
-      }
-      function handleError(e) {
-          console.log('Error loading import: ' + e.target.href);
-      }
+		function handleLoad(e) {
+			console.log('Loaded import: ' + e.target.href);
+		}
+		function handleError(e) {
+			console.log('Error loading import: ' + e.target.href);
+		}
 
-      $(document).ready(function(){
-        $('#nav').load('header.html');
-        $('#footer').load('footer.html');
-      });
+		$(document).ready(function() {
+			$('#nav').load('assets/header.html');
+			$('#footer').load('assets/footer.html');
+		});
 
-      function swap(){
-        angular.element(document.getElementById('next'));
-        console.log("loaded")
-      }
-
-	</script>  
+		function swap() {
+			angular.element(document.getElementById('next'));
+			console.log("loaded")
+		}
+	</script>
 </head>
 <body ng-controller="MainCtrl";>
-<div class="container" >
-  <div class="header">
-    <ul id="nav"></ul>
-  </div><!-- end .header -->  
-  <div class="content">
-    <div class="container slider"line-height:3em;overflow:auto;padding:5px;">
-    <img ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage"
-         ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
-         ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
+	<div class="container">
+		<div class="header">
+			<ul id="nav"></ul>
+		</div>
+		<!-- end .header -->
+		<div class="content">
+			<div class="container slider"line-height:3em;overflow:auto;padding:5px;">
+				<img ng-repeat="slide in slides"
+					class="slide slide-animation nonDraggableImage"
+					ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
+					ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
 
-    <a id = previous class="arrow prev" href="#" ng-click="nextSlide()"></a>
-    <a id = next class="arrow next" href="#" ng-click="prevSlide()"></a>
-    <nav class="nav">
-        <div class="wrapper">
-            <ul class="dots">
-                <li class="dot" ng-repeat="slide in slides">
-                    <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
-                       ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a></li>
-            </ul>
-        </div>
-    </nav>
-	</div><!-- end .container slide -->
-  </div><!-- end .content -->
-  <h4> Welcome to Labro</h4>
-  <p>In the heart of Italy, Labro is a unique town ... Unique for its beautiful location on top of a wooded hill on the one side traguarda the mirror of Lake Piediluco, the most beautiful of the Italian Centre, and a side of the huge cliff of Monte Terminillo, the Alpe di Roma.
-  </p>
-<p>&nbsp;</p>
-<div id="footer">
-</div>
-</div><!-- end .container -->
+					<a id=previous class="arrow prev" href="#" ng-click="nextSlide()"></a>
+					<a id=next class="arrow next" href="#" ng-click="prevSlide()"></a>
+					<nav class="nav">
+					<div class="wrapper">
+						<ul class="dots">
+							<li class="dot" ng-repeat="slide in slides"><a href="#"
+								ng-class="{'active':isCurrentSlideIndex($index)}"
+								ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a></li>
+						</ul>
+					</div>
+					</nav>
+			</div>
+			<!-- end .container slide -->
+		</div>
+		<!-- end .content -->
+		<h4>Welcome to Labro</h4>
+		<p>In the heart of Italy, Labro is a unique town ... Unique for
+			its beautiful location on top of a wooded hill on the one side
+			traguarda the mirror of Lake Piediluco, the most beautiful of the
+			Italian Centre, and a side of the huge cliff of Monte Terminillo, the
+			Alpe di Roma.</p>
+		<p>&nbsp;</p>
+		<div id="footer" class="footer"></div>
+	</div>
+	<!-- end .container -->
 </body>
 </html>
