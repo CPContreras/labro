@@ -35,7 +35,7 @@ function MM_findObj(n, d) {
 	return x;
 }
 
-function MM_swapImage() { // v3.0
+function MM_swapImage() { 
 	var i, j = 0, x, a = MM_swapImage.arguments;
 	document.MM_sr = new Array;
 	for (i = 0; i < (a.length - 2); i += 3)

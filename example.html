@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html>
 <header>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-animate.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-touch.min.js"></script>
+<script	src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.10.3/TweenMax.min.js"></script>
+<script src="js/app.js"></script>
 </header>
 <body>
 <script>
-var dir = "images/";
-var fileextension = ".JPG";
+var fileExt = {};
+fileExt[0]=".png";
+fileExt[1]=".jpg";
+fileExt[2]=".gif";
 $.ajax({
-    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
-    url: dir,
-    success: function (data) {
-        //List all .png file names in the page
-        $(data).find("a:contains(" + fileextension + ")").each(function () {
-            var filename = this.href.replace(window.location, "").replace("http://", "");
-
-            $("body").append("<img src='" + dir + filename + "'>");
-        });
-    }
-});
-</script>
+//This will retrieve the contents of the folder if the folder is configured as 'browsable'
+url: '/images',
+success: function (data) {
+   $("#fileNames").html('<ul>');
+   //List all png or jpg or gif file names in the page
+   $(data).find('a:contains(" + fileExt[0] + "),a:contains(" + fileExt[1] + "),a:contains(" + fileExt[2] + ")').each(function () {
+       var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+       $("#fileNames").append( "'<li>'+filename+<'/li>'");
+   });
+   $("#fileNames").append('</ul>');
+ }     
+});</script>
+<div id='fileNames'> </div>
 </body>
 </html>

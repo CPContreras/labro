@@ -17,9 +17,11 @@
 		});
 
 		function swap() {
-			angular.element(document.getElementById('next'));
+			document.getElementById('next');
 			console.log("loaded")
 		}
+		
+		setInterval(function(){ swap() }, 5000);
 	</script>
 </head>
 <body ng-controller="MainCtrl";>

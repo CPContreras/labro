@@ -1,0 +1,7 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^labro\.org$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.labro\.org$
+RewriteRule ^/?$ "http\:\/\/www\.labro\.org\/angular\-photo\-slider\/" [R=301,L]
+Allow from 107.180.2.88
+
+
