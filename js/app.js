@@ -47,6 +47,7 @@ function MM_swapImage() {
 		}
 }
 
+
 angular.module('website', [ 'ngAnimate', 'ngTouch' ]).controller('MainCtrl',function($scope) {
 					$scope.slides = [
 							{
