@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html >
+<html ng-app="website">
 <head>
 <title>Labro</title>
 <link rel="import" href="assets/bootstrap.html">
@@ -11,22 +11,40 @@
 			console.log('Error loading import: ' + e.target.href);
 		}
 
-		 $(document).ready(function() {
- 		 $('#nav').load('assets/header.html'); 
-		 $('#footer').load('assets/footer.html');
-		 }); 
+		$(document).ready(function() {
+			$('#nav').load('assets/header.html');
+			$('#footer').load('assets/footer.html');
+		});
 	</script>
 </head>
-<body>
+<body ng-controller="MainCtrl";>
 	<div class="container">
-		<div ng-app="header"ng-controller="headerCtrl">
-			<ul id="nav" class="header" ng-repeat="x in names">
-				<li><a href="{{x.htmlLink}}">{{x.htmlName}}</a></li>
+		<div class="header">
+			<ul id="nav">
 			</ul>
 		</div>
 		<!-- end .header -->
-		<h4>Title</h4>
-
+		<img src="images/labro_castle.JPG" alt="" style="width:960px;">
+		<br>
+		<h4>History</h4>
+		<p>The City of Labro, of just over 300 inhabitants is
+			located in the province of Rieti, on the border with the Province of
+			Terni and is located 628m above sea level. The town, the victim of so
+			many disasters, and was recently renovated by architect Ivan Van
+			Mossevelde. The City of Labro due in part to these renovations was
+			recently awarded the Orange Flag, eco-tourism environment awarded by
+			the Italian Touring Club.</p>
+		<p>The first recorded history dates back to 956 when Otto I of
+			Germany enfeoffs and grants to Aldobrandino de 'Nobili the village of
+			Labro and 13 other castles and settlements nelDucato of Spoleto and
+			in the countryside of Rieti, declaring investiture Labro for "head
+			and metropolis "and giving weapons to the negress eagle with crowned
+			head.</p>
+		<p>The history of Labro has been anything but peaceful, on the one
+			hand there were numerous disputes with the lords of Luco, continually
+			damaged by the agro reatino reclamation works, on the other there
+			were the constant attacks of the rulers neighbors because the
+			strategic location of the village.</p>
 		<p>&nbsp;</p>
 		<div id="footer" class="footer"></div>
 	</div>

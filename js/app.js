@@ -47,7 +47,6 @@ function MM_swapImage() {
 		}
 }
 
-
 angular.module('website', [ 'ngAnimate', 'ngTouch' ]).controller('MainCtrl',function($scope) {
 					$scope.slides = [
 							{
@@ -192,27 +191,27 @@ angular.module('restaurants', []).controller('customersCtrl', function($scope) {
 		"Web" : ""
 	} ];
 });
-angular.module('header', []).controller('headerCtrl', function($scope) {
-	$scope.names = [ {
-		"htmlName" : "Home",
-		"htmlLink" : "index.html",
-	}, {
-		"htmlName" : "Attractions",
-		"htmlLink" : "attractions.html",
-	}, {
-		"htmlName" : "Restaurants",
-		"htmlLink" : "restuarants.html",
-	}, {
-		"htmlName" : "History",
-		"htmlLink" : "history.html",
-	}, {
-		"htmlName" : "Contact",
-		"htmlLink" : "contact.html",
-	}, {
-		"htmlName" : "Directions",
-		"htmlLink" : "directions.html",
-	}, {
-		"htmlName" : "About Us",
-		"htmlLink" : "about.html",
-	} ];
-});
+//angular.module('header', []).controller('headerCtrl', function($scope) {
+//	$scope.names = [ {
+//		"htmlName" : "Home",
+//		"htmlLink" : "index.html",
+//	}, {
+//		"htmlName" : "Attractions",
+//		"htmlLink" : "attractions.html",
+//	}, {
+//		"htmlName" : "Restaurants",
+//		"htmlLink" : "restuarants.html",
+//	}, {
+//		"htmlName" : "History",
+//		"htmlLink" : "history.html",
+//	}, {
+//		"htmlName" : "Contact",
+//		"htmlLink" : "contact.html",
+//	}, {
+//		"htmlName" : "Directions",
+//		"htmlLink" : "directions.html",
+//	}, {
+//		"htmlName" : "About Us",
+//		"htmlLink" : "about.html",
+//	} ];
+//});

@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html ng-app="website">
+<html >
 <head>
 <title>Labro</title>
 <link rel="import" href="assets/bootstrap.html">
@@ -11,21 +11,22 @@
 			console.log('Error loading import: ' + e.target.href);
 		}
 
-		$(document).ready(function() {
-			$('#nav').load('assets/header.html');
-			$('#footer').load('assets/footer.html');
-		});
+		 $(document).ready(function() {
+ 		 $('#nav').load('assets/header.html'); 
+		 $('#footer').load('assets/footer.html');
+		 }); 
 	</script>
 </head>
-<body ng-controller="MainCtrl";>
+<body>
 	<div class="container">
-		<div class="header">
-			<ul id="nav">
+		<div ng-app="header"ng-controller="headerCtrl">
+			<ul id="nav" class="header" ng-repeat="x in names">
+				<li><a href="{{x.htmlLink}}">{{x.htmlName}}</a></li>
 			</ul>
 		</div>
 		<!-- end .header -->
 		<h4>Title</h4>
-		<p>Main body text</p>	 
+
 		<p>&nbsp;</p>
 		<div id="footer" class="footer"></div>
 	</div>

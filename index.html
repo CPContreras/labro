@@ -2,22 +2,22 @@
 <html ng-app="website">
 <head>
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-<meta content="utf-8" http-equiv="encoding">
-<title>Labro</title>
-<link rel="import" href="/assets/bootstrap.html">
-	<script type="text/javascript">
-		function handleLoad(e) {
-			console.log('Loaded import: ' + e.target.href);
-		}
-		function handleError(e) {
-			console.log('Error loading import: ' + e.target.href);
-		}
+	<meta content="utf-8" http-equiv="encoding">
+		<title>Labro</title>
+		<link rel="import" href="/assets/bootstrap.html">
+			<script type="text/javascript">
+				function handleLoad(e) {
+					console.log('Loaded import: ' + e.target.href);
+				}
+				function handleError(e) {
+					console.log('Error loading import: ' + e.target.href);
+				}
 
-		$(document).ready(function() {
-			$('#nav').load('assets/header.html');
-			$('#footer').load('assets/footer.html');
-		});
-	</script>
+				$(document).ready(function() {
+					$('#nav').load('assets/header.html');
+					$('#footer').load('assets/footer.html');
+				});
+			</script>
 </head>
 <body ng-controller="MainCtrl";>
 	<div class="container">
@@ -47,13 +47,30 @@
 			<!-- end .container slide -->
 		</div>
 		<!-- end .content -->
+		<br>
 		<h4>Welcome to Labro</h4>
-		<p>In the heart of Italy, Labro is a unique town ... Unique for
-			its beautiful location on top of a wooded hill on the one side
-			traguarda the mirror of Lake Piediluco, the most beautiful of the
-			Italian Centre, and a side of the huge cliff of Monte Terminillo, the
-			Alpe di Roma.</p>
-		<p>&nbsp;</p>
+		<p>In the heart of Italy is a small village called “Labro”,
+			located on the border between Lazio and Umbria, on a wooded hill
+			looking out over the lake of Piediluco and Riete. Labro is located
+			about 80 miles from Rome which takes about two hours due to the heavy
+			traffic and congestion.</p>
+		<p>The place offers a castle, three pizzerias, three restaurants,
+			a mini market, a bar and an antique shops, which open only for the
+			summer.</p>
+		<p>The current castle as it stands today was used until the
+			fifteenth century for defense as an ancient fortress. The castle is
+			still being inhabited by Vitelleschi Nobili family, which is still
+			fully furnished with furniture, objects and paintings handed down
+			from generation to generation. Of particular interest is the family
+			archive, intact and provided particularly for documents that go back
+			about one thousands year and tell the story of Labro and resident
+			family to this day. It is possible to take a guided tour of the
+			picturesque Castle.</p>
+		<p>In addition to the beauty of the village and the surrounding
+			nature, the town is also a good stopping place to reach other places
+			of interest such as: Leonessa, Terminillo, Carsulae and the Marmore
+			waterfall and much more.</p>
+		<br>
 		<div id="footer" class="footer"></div>
 	</div>
 	<!-- end .container -->
