@@ -8,3 +8,5 @@
 *.container
 
 *.supported
+
+.tern-project
