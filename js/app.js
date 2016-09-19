@@ -11,13 +11,13 @@ function MM_preloadImages() {
 				console.log(a[i]);
 			}
 	}
-	cosole.log("MM_preloadImages");
+	console.log("MM_preloadImages");
 }
 function MM_swapImgRestore() { 
 	var i, x, a = document.MM_sr;
 	for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++)
 		x.src = x.oSrc;
-	cosole.log("MM_swapImgRestore");
+	console.log("MM_swapImgRestore");
 }
 function MM_findObj(n, d) {
 	var p, i, x;
@@ -49,57 +49,44 @@ function MM_swapImage() {
 				x.oSrc = x.src;
 			x.src = a[i + 2];
 		}
-	cosole.log("MM_swapImage");
+	console.log("MM_swapImage");
 }
-
+	
 var app = angular.module('website', ['ngAnimate', 'ngTouch', 'ngRoute']);
-
-app.config(['$routeProvider', function ($routeProvider) {
-  $routeProvider
-    .when("/", {templateUrl: "partials/home.html"})
-    .when("/home", {templateUrl: "partials/home.html"})
-     .when("/attractions", {templateUrl: "partials/attractions.html"})
-    .when("/restaurants", {templateUrl: "partials/restaurants.html"})
-    .when("/history", {templateUrl: "partials/history.html"})
-    .when("/contact", {templateUrl: "partials/contact.html"})
-    .when("/directions", {templateUrl: "partials/directions.html"})
-    .when("/about", {templateUrl: "partials/about.html"})
-    .otherwise("/404", {templateUrl: "partials/404.html"});
-}]);
 
 
 app.controller('carousel',function($scope) {
 					$scope.slides = [
 							{
-								image : '../images/labro_home_page.JPG',
+								image : '/images/labro_home_page.JPG',
 								description : 'labro'
 							},
 							{
-								image : '../images/labro_main_street_towards_the house.JPG',
+								image : '/images/labro_main_street_towards_the house.JPG',
 								description : 'labro'
 							},
 							{
-								image : '../images/labro_church_bench.JPG',
+								image : '/images/labro_church_bench.JPG',
 								description : 'labro'
 							},
 							{
-								image : '../images/labro_sunset_lake.JPG',
+								image : '/images/labro_sunset_lake.JPG',
 								description : 'labro'
 							},
 							{
-								image : '../images/Labro_view_lake_foggy.JPG',
+								image : '/images/Labro_view_lake_foggy.JPG',
 								description : 'labro'
 							},
 							{
-								image : '../images/labro_lake_boats.JPG',
+								image : '/images/labro_lake_boats.JPG',
 								description : 'labro'
 							},
 							{
-								image : '../images/labro_lake.JPG',
+								image : '/images/labro_lake.JPG',
 								description : 'labro'
 							},
 							{
-								image : '../images/labro_view_lake_boats_daytime.JPG',
+								image : '/images/labro_view_lake_boats_daytime.JPG',
 								description : 'labro'
 							} ];
 
@@ -113,14 +100,16 @@ app.controller('carousel',function($scope) {
 					};
 
 					$scope.isCurrentSlideIndex = function(index) {
+						console.log("isCurrentSlideIndex" + index)
 						return $scope.currentIndex === index;
-						console.log("isCurrentSlideIndex")
+
 					};
 
 					$scope.prevSlide = function() {
 						$scope.direction = 'left';
-						$scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
-						console.log("prevSlide")
+						var test = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
+						$scope.currentIndex 
+						console.log(test)
 					};
 
 					$scope.nextSlide = function() {
@@ -170,6 +159,21 @@ app.controller('carousel',function($scope) {
 			};
 		});
 
+
+app.config(['$routeProvider', function ($routeProvider) {
+  $routeProvider
+    .when("/", {templateUrl: "partials/home.html"})
+    .when("/home", {templateUrl: "partials/home.html"})
+     .when("/attractions", {templateUrl: "partials/attractions.html"})
+    .when("/restaurants", {templateUrl: "partials/restaurants.html"})
+    .when("/history", {templateUrl: "partials/history.html"})
+    .when("/contact", {templateUrl: "partials/contact.html"})
+    .when("/directions", {templateUrl: "partials/directions.html"})
+    .when("/about", {templateUrl: "partials/about.html"})
+    .otherwise("/404", {templateUrl: "partials/404.html"});
+}]);
+
+
 app.controller('customersCtrl', function($scope) {
 	$scope.names = [ {
 		"Name" : "ArcoLuna (Ristorante)",
@@ -213,3 +217,14 @@ app.controller('customersCtrl', function($scope) {
 		"Web" : ""
 	} ];
 });
+
+app.controller('form', ['$scope', function($scope) {
+  $scope.list = [];
+  $scope.text = 'default text';
+  $scope.submit = function() {
+    if ($scope.text) {
+      $scope.list.push(this.text);
+      $scope.text = '';
+    }
+  };
+}]);
