@@ -53,8 +53,6 @@ function MM_swapImage() {
 }
 	
 var app = angular.module('website', ['ngAnimate', 'ngTouch', 'ngRoute']);
-
-
 app.controller('carousel',function($scope) {
 					$scope.slides = [
 							{
@@ -100,7 +98,6 @@ app.controller('carousel',function($scope) {
 					};
 
 					$scope.isCurrentSlideIndex = function(index) {
-						console.log("isCurrentSlideIndex" + index)
 						return $scope.currentIndex === index;
 
 					};
