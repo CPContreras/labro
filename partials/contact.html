@@ -3,13 +3,26 @@
 	<h3>Contact</h3>
 	</p>
 	<p>Under Construction</p>
-	<form ng-submit="submit()" ng-controller="form">
-		<p>
-			Enter text and hit enter: <input type="text" ng-model="text" /> <input
-				type="submit" id="submit" value="Submit" />
-		<pre>list={{list}}</pre>
+	<form name="myForm" ng-controller="emailValidation">
+		<label>Email: <input type="email" name="input"
+			ng-model="email.text" required>
+		</label>
+		<div role="alert">
+			<span class="error" ng-show="myForm.input.$error.required">
+				Required!</span> <span class="error" ng-show="myForm.input.$error.email">
+				Not valid email!</span>
+		</div>
+		<tt>text = {{email.text}}</tt>
+		<br />
+		<tt>myForm.input.$valid = {{myForm.input.$valid}}</tt>
+		<br />
+		<tt>myForm.input.$error = {{myForm.input.$error}}</tt>
+		<br />
+		<tt>myForm.$valid = {{myForm.$valid}}</tt>
+		<br />
+		<tt>myForm.$error.required = {{!!myForm.$error.required}}</tt>
+		<br />
+		<tt>myForm.$error.email = {{!!myForm.$error.email}}</tt>
+		<br />
 	</form>
-
-	</p>
-
 </div>

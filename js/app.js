@@ -1,4 +1,4 @@
-function MM_preloadImages() { 
+function MM_preloadImages() {
 	var d = document;
 	if (d.images) {
 		if (!d.MM_p)
@@ -13,7 +13,7 @@ function MM_preloadImages() {
 	}
 	console.log("MM_preloadImages");
 }
-function MM_swapImgRestore() { 
+function MM_swapImgRestore() {
 	var i, x, a = document.MM_sr;
 	for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++)
 		x.src = x.oSrc;
@@ -39,7 +39,7 @@ function MM_findObj(n, d) {
 	return x;
 }
 
-function MM_swapImage() { 
+function MM_swapImage() {
 	var i, j = 0, x, a = MM_swapImage.arguments;
 	document.MM_sr = new Array;
 	for (i = 0; i < (a.length - 2); i += 3)
@@ -51,9 +51,12 @@ function MM_swapImage() {
 		}
 	console.log("MM_swapImage");
 }
-	
-var app = angular.module('website', ['ngAnimate', 'ngTouch', 'ngRoute']);
-app.controller('carousel',function($scope) {
+
+var app = angular.module('website', [ 'ngAnimate', 'ngTouch', 'ngRoute' ]);
+app
+		.controller(
+				'carousel',
+				function($scope) {
 					$scope.slides = [
 							{
 								image : '/images/labro_home_page.JPG',
@@ -92,7 +95,8 @@ app.controller('carousel',function($scope) {
 					$scope.currentIndex = 0;
 
 					$scope.setCurrentSlideIndex = function(index) {
-						$scope.direction = (index > $scope.currentIndex) ? 'left': 'right';
+						$scope.direction = (index > $scope.currentIndex) ? 'left'
+								: 'right';
 						$scope.currentIndex = index;
 						console.log("setCurrentSlideIndex")
 					};
@@ -104,14 +108,16 @@ app.controller('carousel',function($scope) {
 
 					$scope.prevSlide = function() {
 						$scope.direction = 'left';
-						var test = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
-						$scope.currentIndex 
+						var test = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex
+								: 0;
+						$scope.currentIndex
 						console.log(test)
 					};
 
 					$scope.nextSlide = function() {
 						$scope.direction = 'right';
-						$scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
+						$scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex
+								: $scope.slides.length - 1;
 						console.log("nextSlide")
 					};
 				}).animation('.slide-animation', function() {
@@ -156,20 +162,27 @@ app.controller('carousel',function($scope) {
 			};
 		});
 
-
-app.config(['$routeProvider', function ($routeProvider) {
-  $routeProvider
-    .when("/", {templateUrl: "partials/home.html"})
-    .when("/home", {templateUrl: "partials/home.html"})
-     .when("/attractions", {templateUrl: "partials/attractions.html"})
-    .when("/restaurants", {templateUrl: "partials/restaurants.html"})
-    .when("/history", {templateUrl: "partials/history.html"})
-    .when("/contact", {templateUrl: "partials/contact.html"})
-    .when("/directions", {templateUrl: "partials/directions.html"})
-    .when("/about", {templateUrl: "partials/about.html"})
-    .otherwise("/404", {templateUrl: "partials/404.html"});
-}]);
-
+app.config([ '$routeProvider', function($routeProvider) {
+	$routeProvider.when("/", {
+		templateUrl : "partials/home.html"
+	}).when("/home", {
+		templateUrl : "partials/home.html"
+	}).when("/attractions", {
+		templateUrl : "partials/attractions.html"
+	}).when("/restaurants", {
+		templateUrl : "partials/restaurants.html"
+	}).when("/history", {
+		templateUrl : "partials/history.html"
+	}).when("/contact", {
+		templateUrl : "partials/contact.html"
+	}).when("/directions", {
+		templateUrl : "partials/directions.html"
+	}).when("/about", {
+		templateUrl : "partials/about.html"
+	}).otherwise("/404", {
+		templateUrl : "partials/404.html"
+	});
+} ]);
 
 app.controller('customersCtrl', function($scope) {
 	$scope.names = [ {
@@ -215,13 +228,8 @@ app.controller('customersCtrl', function($scope) {
 	} ];
 });
 
-app.controller('form', ['$scope', function($scope) {
-  $scope.list = [];
-  $scope.text = 'default text';
-  $scope.submit = function() {
-    if ($scope.text) {
-      $scope.list.push(this.text);
-      $scope.text = '';
-    }
-  };
-}]);
+app.controller('emailValidation', [ '$scope', function($scope) {
+	$scope.email = {
+		text : 'me@example.com'
+	};
+} ]);
