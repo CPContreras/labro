@@ -1,0 +1,17 @@
+<div class="container">
+	<p>
+	<h3>Restaurants</h3>
+	</p>
+	<p>Here are some good places to eat
+	<div ng-controller="customersCtrl">
+		<table border="1" cellpadding="5px" align="center">
+			<tr ng-repeat="x in names">
+				<td>{{x.Name}}</td>
+				<td>{{x.Address}}</td>
+				<td>{{x.Tel}}</td>
+				<td><a href="{{x.Web}}" target="_blank">{{x.Web}}</a></td>
+			</tr>
+		</table>
+	</div>
+	</p>
+</div>

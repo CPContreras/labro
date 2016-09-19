@@ -12,67 +12,11 @@
 				function handleError(e) {
 					console.log('Error loading import: ' + e.target.href);
 				}
-
-				$(document).ready(function() {
-					$('#nav').load('assets/header.html');
-					$('#footer').load('assets/footer.html');
-				});
 			</script>
 </head>
-<body ng-controller="MainCtrl";>
-	<div class="container">
-		<div class="header">
-			<ul id="nav"></ul>
-		</div>
-		<!-- end .header -->
-		<div class="content">
-			<div class="container slider"line-height:3em;overflow:auto;padding:5px;">
-				<img ng-repeat="slide in slides"
-					class="slide slide-animation nonDraggableImage"
-					ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
-					ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
-
-					<a id=previous class="arrow prev" href="#" ng-click="nextSlide()"></a>
-					<a id=next class="arrow next" href="#" ng-click="prevSlide()"></a>
-					<nav class="nav">
-					<div class="wrapper">
-						<ul class="dots">
-							<li class="dot" ng-repeat="slide in slides"><a href="#"
-								ng-class="{'active':isCurrentSlideIndex($index)}"
-								ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a></li>
-						</ul>
-					</div>
-					</nav>
-			</div>
-			<!-- end .container slide -->
-		</div>
-		<!-- end .content -->
-		<br>
-		<h4>Welcome to Labro</h4>
-		<p>In the heart of Italy is a small village called “Labro”,
-			located on the border between Lazio and Umbria, on a wooded hill
-			looking out over the lake of Piediluco and Riete. Labro is located
-			about 80 miles from Rome which takes about two hours due to the heavy
-			traffic and congestion.</p>
-		<p>The place offers a castle, three pizzerias, three restaurants,
-			a mini market, a bar and an antique shops, which open only for the
-			summer.</p>
-		<p>The current castle as it stands today was used until the
-			fifteenth century for defense as an ancient fortress. The castle is
-			still being inhabited by Vitelleschi Nobili family, which is still
-			fully furnished with furniture, objects and paintings handed down
-			from generation to generation. Of particular interest is the family
-			archive, intact and provided particularly for documents that go back
-			about one thousands year and tell the story of Labro and resident
-			family to this day. It is possible to take a guided tour of the
-			picturesque Castle.</p>
-		<p>In addition to the beauty of the village and the surrounding
-			nature, the town is also a good stopping place to reach other places
-			of interest such as: Leonessa, Terminillo, Carsulae and the Marmore
-			waterfall and much more.</p>
-		<br>
-		<div id="footer" class="footer"></div>
-	</div>
-	<!-- end .container -->
+<body>
+	<div ng-include='"templates/header.html"'></div>
+	<div ng-view></div>
+	<div ng-include='"templates/footer.html"'></div>
 </body>
 </html>
